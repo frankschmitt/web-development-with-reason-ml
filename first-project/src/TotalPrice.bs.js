@@ -2,10 +2,15 @@
 'use strict';
 
 
+var total = 7 * 14.5;
+
+console.log("The total price is \xe2\x82\xac", total);
+
 var qty = 7;
 
-var price = 15;
+var price = 14.5;
 
 exports.qty = qty;
 exports.price = price;
-/* No side effect */
+exports.total = total;
+/*  Not a pure module */
