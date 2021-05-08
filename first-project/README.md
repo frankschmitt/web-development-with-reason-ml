@@ -22,3 +22,5 @@ yarn start
 npm run start
 ```
 
+# Run generated code
+```node <generated.bs.js>```
