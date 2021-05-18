@@ -10,7 +10,7 @@ var discountPrice = total * (1.0 - discount);
 
 console.log("The total price is \xe2\x82\xac", total);
 
-console.log("The discount price is €" + discountPrice.toString());
+console.log("The discount price is \xe2\x82\xac", discountPrice.toString());
 
 var qty = 8;
 

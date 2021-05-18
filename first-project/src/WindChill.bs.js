@@ -4,7 +4,7 @@
 
 var t_wc = 13.12 + 0.6215 * 5.0 + (0.3965 * 5.0 - 11.37) * Math.pow(20.0, 0.16);
 
-console.log("At temperature " + ((5.0).toString() + (" degrees Celsius and wind speed " + ((20.0).toString() + (" km/h, the wind chill temperature is " + t_wc.toString())))));
+console.log("At temperature " + (5.0).toString() + " degrees Celsius and wind speed " + (20.0).toString() + " km/h, the wind chill temperature is " + t_wc.toString());
 
 var t = 5.0;
 

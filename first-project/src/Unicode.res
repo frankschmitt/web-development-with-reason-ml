@@ -10,4 +10,4 @@ let discountPrice = total *. (1.0 -. discount);
 Js.log2("The total price is €", total);
 
 /* good Unicode - string enclosed in ... */ 
-Js.log({js|The discount price is €|js} ++ Js.Float.toString(discountPrice)); 
+Js.log2("The discount price is €", Js.Float.toString(discountPrice)); 

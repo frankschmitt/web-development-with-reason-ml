@@ -39,7 +39,14 @@ let colourSpecOfString = (s: string) : colourSpec => {
   switch (s) {
     | "White" => White
     | "Black" => Black
-    | _ => White // TODO: handle Grey + RGB
+    | s => let r = %re("/Grey\(([.0-9]+)\)/g")
+           switch Js.Re.exec_(r, s) {
+             |Some(m) => let m0 = Js.Re.captures(m)[0]
+                         // TODO this is ugly and doesn't work properly - debug, write in pipe style 
+                         Js.Option.getWithDefault(Black, Js.Nullable.toOption(Js.Nullable.bind(m0, (. match0) => Grey(Js.Option.getWithDefault(0.0, Belt.Float.fromString(match0))))))
+             |None    => Black
+           }
+    // TODO: handle Grey + RGB
   }
 };
 
@@ -55,3 +62,4 @@ Js.log("----------------------- string -> colourSpec --------------------------"
 Js.log("White = " ++ stringOfColourSpec(colourSpecOfString("White")));
 Js.log("Black = " ++ stringOfColourSpec(colourSpecOfString("Black")));
 Js.log("Grey(0.3) = " ++ stringOfColourSpec(colourSpecOfString("Grey(0.3)")));
+Js.log("RGB(10,20,30) = " ++ stringOfColourSpec(colourSpecOfString("RGB(10,20,30")));
