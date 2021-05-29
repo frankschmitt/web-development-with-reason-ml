@@ -17,19 +17,20 @@ let shirtSizeOfString = (str: string) : option<shirtSize> => {
   }
 };
 
-let price = (size: option<shirtSize>) : option<float> => {
+let price = (size: shirtSize) : float => {
   switch (size) {
-    | Some(Small) => Some(11.00)
-    | Some(Medium) => Some(12.50)
-    | Some(Large) => Some(14.00)
-    | Some(XLarge(n)) => Some(16.00 +. (float_of_int(n - 1) *. 0.50))
-    | None => None
+    | Small => 11.00
+    | Medium => 12.50
+    | Large => 14.00
+    | XLarge(n) => 16.00 +. (float_of_int(n - 1) *. 0.50)
   }
 };
 
 let displayPrice = (input: string) : unit => {
-  let size = shirtSizeOfString(input);
-  let amount = price(size);
+  // combining the pipe operator -> with Option.map / Option.flatMap allows us to write quite elegant code
+  let amount = 
+    shirtSizeOfString(input)
+    -> Belt.Option.map(_, price)
   let text = switch(amount) {
     | Some(cost) => {
         let costStr = Js.Float.toString(cost)
@@ -47,9 +48,7 @@ let displayPrice = (input: string) : unit => {
    -> Belt.Option.map(_, cube)
  */
 
-Js.log(price(shirtSizeOfString("S")));
-Js.log(price(shirtSizeOfString("XXL")));
-
 displayPrice("S");
 displayPrice("XL");
+displayPrice("XS");
 
