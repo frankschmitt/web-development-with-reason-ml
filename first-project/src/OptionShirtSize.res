@@ -27,6 +27,25 @@ let price = (size: option<shirtSize>) : option<float> => {
   }
 };
 
+let displayPrice = (input: string) : unit => {
+  let size = shirtSizeOfString(input);
+  let amount = price(size);
+  let text = switch(amount) {
+    | Some(cost) => {
+        let costStr = Js.Float.toString(cost)
+        "Your " ++ input ++ " shirt costs EUR " ++ costStr 
+      }
+    | None => "Cannot determine price for " ++ input
+  };
+  Js.log(text);
+};
+
+// let oneOver = Belt.Option.flatMap(x, f);
+// let result = Belt.Option.map(oneOver, cube);
+
 Js.log(price(shirtSizeOfString("S")));
 Js.log(price(shirtSizeOfString("XXL")));
+
+displayPrice("S");
+displayPrice("XL");
 

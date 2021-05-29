@@ -49,10 +49,29 @@ function price(size) {
   }
 }
 
+function displayPrice(input) {
+  var size = shirtSizeOfString(input);
+  var amount = price(size);
+  var text;
+  if (amount !== undefined) {
+    var costStr = amount.toString();
+    text = "Your " + input + " shirt costs EUR " + costStr;
+  } else {
+    text = "Cannot determine price for " + input;
+  }
+  console.log(text);
+  
+}
+
 console.log(price(shirtSizeOfString("S")));
 
 console.log(price(shirtSizeOfString("XXL")));
 
+displayPrice("S");
+
+displayPrice("XL");
+
 exports.shirtSizeOfString = shirtSizeOfString;
 exports.price = price;
+exports.displayPrice = displayPrice;
 /*  Not a pure module */
