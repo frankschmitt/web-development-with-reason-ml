@@ -26,27 +26,21 @@ let price = (size: shirtSize) : float => {
   }
 };
 
+let makeDisplayText = (input: string, costStr: string) : string => {
+  "Your " ++ input ++ " shirt costs EUR " ++ costStr 
+}
+
 let displayPrice = (input: string) : unit => {
   // combining the pipe operator -> with Option.map / Option.flatMap allows us to write quite elegant code
-  let amount = 
+  // flatMap expects a function that returns an option<'a>, and map expects a "plain" function that returns 'a
+  let text = 
     shirtSizeOfString(input)
     -> Belt.Option.map(_, price)
-  let text = switch(amount) {
-    | Some(cost) => {
-        let costStr = Js.Float.toString(cost)
-        "Your " ++ input ++ " shirt costs EUR " ++ costStr 
-      }
-    | None => "Cannot determine price for " ++ input
-  };
+    -> Belt.Option.map(_, Js.Float.toString)
+    -> Belt.Option.map(_, makeDisplayText(input))
+    -> Js.Option.getWithDefault("Cannot determine price for " ++ input, _)
   Js.log(text);
 };
-
-/* let oneOver = Belt.Option.flatMap(x, f);
-   let result = Belt.Option.map(oneOver, cube);
-   toFloat(input)
-   -> Belt.Option.flatMap(_, reciprocal)
-   -> Belt.Option.map(_, cube)
- */
 
 displayPrice("S");
 displayPrice("XL");
