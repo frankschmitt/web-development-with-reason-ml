@@ -1,0 +1,10 @@
+= Start a new project
+git clone https://github.com/rescript-lang/rescript-project-template
+cd rescript-project-template
+npm install
+npm run build
+node src/Demo.bs.js
+
+= Links
+https://rescript-lang.org
+
