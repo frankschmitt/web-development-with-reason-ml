@@ -1,3 +1,12 @@
+= Start a new project (without baggage)
+https://github.com/rescript-lang/rescript-project-template/archive/refs/heads/master.zip
+unzip master
+mv rescript-project-template <my-name>
+cd <my-name>
+npm install
+npm run build
+node src/Demo.bs.js
+
 = Start a new project
 git clone https://github.com/rescript-lang/rescript-project-template
 cd rescript-project-template
