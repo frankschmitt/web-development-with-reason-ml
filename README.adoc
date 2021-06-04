@@ -1,4 +1,11 @@
-= Start a new project (without baggage)
+= Synopsis
+Solutions to exercises from the "Web development with ReasonML" book
+
+= License 
+Apache (see LICENSE)
+
+= Cheatsheet
+== Start a new project (without baggage)
 https://github.com/rescript-lang/rescript-project-template/archive/refs/heads/master.zip
 unzip master
 mv rescript-project-template <my-name>
@@ -7,7 +14,7 @@ npm install
 npm run build
 node src/Demo.bs.js
 
-= Start a new project
+== Start a new project (incl. git history)
 git clone https://github.com/rescript-lang/rescript-project-template
 cd rescript-project-template
 npm install
