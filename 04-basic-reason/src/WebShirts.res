@@ -72,7 +72,11 @@ let calculate = (_: Dom.event) : unit => {
   Js.log("You clicked me");
 };
 
-// set event handlers
+// -------------------------------
+//      set event handlers
+// -------------------------------
+
+// calculate button
 let calcButton = Doc.getElementById("calculate", D.document);
 switch (calcButton) {
   | Some(element) => D.EventTarget.addEventListener( 
@@ -80,3 +84,16 @@ switch (calcButton) {
   | None => ()
 };
 
+// text / drop-down - re-compute on change
+let quantity = Doc.getElementById("quantity", D.document);
+switch (quantity) {
+  | Some(element) => D.EventTarget.addEventListener( 
+      "change", calculate, Elem.asEventTarget(element))
+  | None => ()
+};
+let size = Doc.getElementById("size", D.document);
+switch (size) {
+  | Some(element) => D.EventTarget.addEventListener(
+      "change", calculate, Elem.asEventTarget(element))
+  | None => ()
+};

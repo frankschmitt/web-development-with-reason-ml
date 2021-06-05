@@ -93,6 +93,18 @@ if (!(calcButton == null)) {
   calcButton.addEventListener("click", calculate);
 }
 
+var quantity = document.getElementById("quantity");
+
+if (!(quantity == null)) {
+  quantity.addEventListener("change", calculate);
+}
+
+var size = document.getElementById("size");
+
+if (!(size == null)) {
+  size.addEventListener("change", calculate);
+}
+
 var D;
 
 var Doc;
@@ -100,6 +112,10 @@ var Doc;
 var Elem;
 
 var calcButton$1 = (calcButton == null) ? undefined : Caml_option.some(calcButton);
+
+var quantity$1 = (quantity == null) ? undefined : Caml_option.some(quantity);
+
+var size$1 = (size == null) ? undefined : Caml_option.some(size);
 
 exports.D = D;
 exports.Doc = Doc;
@@ -110,4 +126,6 @@ exports.toInt = toInt;
 exports.getValue = getValue;
 exports.calculate = calculate;
 exports.calcButton = calcButton$1;
+exports.quantity = quantity$1;
+exports.size = size$1;
 /* calcButton Not a pure module */
