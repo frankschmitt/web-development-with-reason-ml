@@ -13,11 +13,17 @@ npm install
 - Build: `npm run build`
 - Clean: `npm run clean`
 - Build & watch: `npm run start`
-- `parcel build src/index.html --public-url ./ --no-minify`
 
 
 == Run
 
+=== Webshirts
 ```sh
+parcel build src/index.html --public-url ./ --no-minify
 open dist/index.html
+```
+=== Loan payments
+```sh
+parcel build src/loanpayment.html --public-url ./ --no-minify
+open dist/loanpayment.html
 ```
