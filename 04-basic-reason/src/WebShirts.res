@@ -88,7 +88,7 @@ switch (calcButton) {
 let quantity = Doc.getElementById("quantity", D.document);
 switch (quantity) {
   | Some(element) => D.EventTarget.addEventListener( 
-      "change", calculate, Elem.asEventTarget(element))
+      "input", calculate, Elem.asEventTarget(element))
   | None => ()
 };
 let size = Doc.getElementById("size", D.document);

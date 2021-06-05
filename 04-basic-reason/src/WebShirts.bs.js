@@ -96,7 +96,7 @@ if (!(calcButton == null)) {
 var quantity = document.getElementById("quantity");
 
 if (!(quantity == null)) {
-  quantity.addEventListener("change", calculate);
+  quantity.addEventListener("input", calculate);
 }
 
 var size = document.getElementById("size");
