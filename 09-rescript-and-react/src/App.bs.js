@@ -3,6 +3,7 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import LogoSvg from "./logo.svg";
+import * as Clickable$AppTemplateReasonReact from "./Clickable.bs.js";
 
 var logo = LogoSvg;
 
@@ -38,7 +39,9 @@ function App(Props) {
                       href: "https://reactjs.org",
                       rel: "noopener noreferrer",
                       target: "_blank"
-                    }, "Learn React")));
+                    }, "Learn React"), React.createElement(Clickable$AppTemplateReasonReact.make, {
+                      message: "Hello!  Click this text."
+                    })));
 }
 
 var make = App;
