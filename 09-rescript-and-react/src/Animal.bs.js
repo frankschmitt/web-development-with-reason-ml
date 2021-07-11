@@ -5,6 +5,7 @@ import CatPng from "./images/cat.png";
 import DogPng from "./images/dog.png";
 import BirdPng from "./images/bird.png";
 import FishPng from "./images/fish.png";
+import UnknownPng from "./images/unknown.png";
 
 var dog = DogPng;
 
@@ -14,6 +15,8 @@ var bird = BirdPng;
 
 var fish = FishPng;
 
+var unknown = UnknownPng;
+
 function handleClick(_event) {
   console.log("clicked!");
   
@@ -22,12 +25,30 @@ function handleClick(_event) {
 function Animal(Props) {
   var species = Props.species;
   var name = Props.name;
+  var src;
+  switch (species) {
+    case "bird" :
+        src = bird;
+        break;
+    case "cat" :
+        src = cat;
+        break;
+    case "dog" :
+        src = dog;
+        break;
+    case "fish" :
+        src = fish;
+        break;
+    default:
+      src = unknown;
+  }
   return React.createElement("div", {
+              className: "horiz",
               onClick: handleClick
-            }, "hello! My name is " + name + ", and I'm a " + species, React.createElement("img", {
+            }, React.createElement("img", {
                   alt: species,
-                  src: dog
-                }));
+                  src: src
+                }), React.createElement("span", undefined, React.createElement("br", undefined)), name);
 }
 
 var make = Animal;
@@ -37,6 +58,7 @@ export {
   cat ,
   bird ,
   fish ,
+  unknown ,
   handleClick ,
   make ,
   
