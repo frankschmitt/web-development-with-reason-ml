@@ -3,7 +3,7 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import LogoSvg from "./logo.svg";
-import * as Clickable$AppTemplateReasonReact from "./Clickable.bs.js";
+import * as Animal$AppTemplateReasonReact from "./Animal.bs.js";
 
 var logo = LogoSvg;
 
@@ -30,17 +30,23 @@ function App(Props) {
               className: "App"
             }, React.createElement("header", {
                   className: "App-header"
-                }, React.createElement("img", {
-                      className: "App-logo",
-                      alt: "logo",
-                      src: logo
-                    }), React.createElement("p", undefined, "Edit ", React.createElement("code", undefined, "src/App.res"), " and save to reload."), React.createElement("p", undefined, "Page has been open for ", React.createElement("code", undefined, (match[0] / 10).toFixed(1)), " seconds"), React.createElement("a", {
-                      className: "App-link",
-                      href: "https://reactjs.org",
-                      rel: "noopener noreferrer",
-                      target: "_blank"
-                    }, "Learn React"), React.createElement(Clickable$AppTemplateReasonReact.make, {
-                      message: "Hello!  Click this text."
+                }, React.createElement("a", {
+                      className: "App-link"
+                    }, "go for it!"), React.createElement(Animal$AppTemplateReasonReact.make, {
+                      species: "unknown",
+                      name: "Donald"
+                    }), React.createElement(Animal$AppTemplateReasonReact.make, {
+                      species: "fish",
+                      name: "Ella"
+                    }), React.createElement(Animal$AppTemplateReasonReact.make, {
+                      species: "dog",
+                      name: "Lady"
+                    }), React.createElement(Animal$AppTemplateReasonReact.make, {
+                      species: "cat",
+                      name: "Buffbuff"
+                    }), React.createElement(Animal$AppTemplateReasonReact.make, {
+                      species: "bird",
+                      name: "Kim"
                     })));
 }
 

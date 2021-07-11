@@ -14,21 +14,12 @@ let make = () => {
 
   <div className="App">
     <header className="App-header">
-      <img src=logo className="App-logo" alt="logo" />
-      <p>
-        {React.string("Edit ")}
-        <code> {React.string("src/App.res")} </code>
-        {React.string(" and save to reload.")}
-      </p>
-      <p>
-        {React.string("Page has been open for ")}
-        <code> {React.string(Js.Float.toFixedWithPrecision(count /. 10., ~digits=1))} </code>
-        {React.string(" seconds")}
-      </p>
-      <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        {React.string("Learn React")}
-      </a>
-      <Clickable message="Hello!  Click this text." />
+      <a className="App-link">{React.string("go for it!")}</a>
+      <Animal species="unknown" name="Donald" />
+      <Animal species="fish" name="Ella" />
+      <Animal species="dog" name="Lady" />
+      <Animal species="cat" name="Buffbuff" />
+      <Animal species="bird" name="Kim" />
     </header>
   </div>
 }
